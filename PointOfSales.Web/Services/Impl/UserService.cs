@@ -29,7 +29,7 @@ namespace PointOfSales.Web.Services.Impl
             var secret = jwtConfig.GetValue<string>("secret");
             var user = await db.QueryFirstOrDefaultAsync<UserDto>(
 		        @"select name, password, email, id 
-                  from users where name = @Name", new { Name = userLoginDto.Name });
+                  from users where name = @Name or email = @Name", new { Name = userLoginDto.Name });
 
             if (user == null) 
 				return new ResponseDto<UserLoginResultDto> { Success = false, Message = "User not found." };
