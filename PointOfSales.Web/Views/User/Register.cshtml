@@ -1,0 +1,76 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<div class="container">
+    <form id="form-register">
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+            <input type="text" name="username" id="username" class="form-control" />
+            <label class="form-label" for="form2Example1">Username</label>
+        </div>
+
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+            <input type="email" name="email" id="email" class="form-control" />
+            <label class="form-label" for="form2Example1">Email</label>
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+            <input type="password" name="password" id="password" class="form-control" />
+            <label class="form-label" for="form2Example2">Password</label>
+        </div>
+
+
+        <!-- Submit button -->
+        <button type="button" class="btn btn-primary btn-block mb-4" id="btn-register">
+
+            <span class="spinner-border spinner-border-sm d-none" id="register-spinner" role="status" aria-hidden="true"></span>
+            Sign in
+        </button>
+	    <!-- Login buttons -->
+	    <div class="text-center">
+			<p>Have account? <a href="@Url.RouteUrl("LoginPage")">Login</a></p>
+	    </div>
+
+    </form>
+
+
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        function handleClickRegister() {
+            $.ajax({
+                method: "post",
+                url: "@Url.Action("Register","User")",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({email: $('#email').val(),name: $('#username').val(), password: $('#password').val()}),
+                beforeSend: function () {
+                    $("#register-spinner").removeClass("d-none");
+		        },
+                success: function (result) {
+                    alert('Register sukses.');
+                    window.location.replace("@Url.Action("Index", "Home")")
+		        },
+                error: function () {
+                    alert('Register gagal.');
+		        },
+                complete: function () {
+                    $("#login-spinner").addClass("d-none");
+		        }
+            })
+	    }
+        $(document).ready(function () {
+            $('#btn-register').on('click', function (e) {
+                e.preventDefault()
+                handleClickRegister()
+	        })
+		})
+    </script>
+}
+
