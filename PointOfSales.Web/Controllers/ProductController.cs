@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PointOfSales.Web.Dtos;
 using PointOfSales.Web.RequestPayloads;
@@ -15,6 +16,7 @@ namespace PointOfSales.Web.Controllers
 
     [Route("api/[controller]/[action]")]
     [ApiController]
+    [Authorize]
     public class ProductController : Controller
     {
         private readonly IMapper _mapper;
