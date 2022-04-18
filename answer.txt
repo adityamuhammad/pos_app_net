@@ -1,0 +1,5 @@
+1. Saya memerlukan waktu kurang lebih 20 Jam untuk mengerjakan tugas ini. Jika saya memiliki waktu tambahan maka untuk test case unit testing akan lebih banyak. Selain itu juga menambahkan fitur log monitoring untuk mengetahui lebih cepat bila terdapat bugs di production.
+
+2. Saya menggunakan Ekosistem .Net sudah 3 tahun sejak 2019.
+
+3. Hal pertama yang kita perhatikan dalam deploy aplikasi adalah memastikan seluruh test case Sudah dihandle. Namun apabila ternyata pada saat production terjadi bugs/issue, hal yang pertama kita lihat adalah log monitoring, dengan ada nya tools ini kita bisa lebih cepat mendeteksi apabila terjadi kesalahan, selain itu juga lebih cepat dalam memecahkan masalahnya. 
